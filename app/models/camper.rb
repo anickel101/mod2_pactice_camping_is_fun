@@ -4,6 +4,7 @@ class Camper < ApplicationRecord
 
     validates :name, presence: true
     validates :name, uniqueness: true
-    validates :age, inclusion: 8..18
+    #validates :age, inclusion: 8..18
+    #tried out ", in: 8..18" in the actual form. Pretty neato
 
 end
