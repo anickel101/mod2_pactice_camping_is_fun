@@ -1,0 +1,24 @@
+<h3>Form for SignUp</h3>
+
+<% if flash[:my_errors] && flash[:my_errors].any? %>
+<ul>
+  <% flash[:my_errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @sign_up do |f| %>
+
+<%= f.label "Pick an activity:" %>
+<%= f.collection_select :activity_id, Activity.all, :id, :name %>
+
+<%= f.label "Assign a camper" %>
+<%= f.collection_select :camper_id, Camper.all, :id, :name %>
+
+<%= f.label "Pick a time:" %>
+<%= f.number_field :time %>
+
+<%= f.submit %>
+
+<% end %>

@@ -1,0 +1,19 @@
+<h1>Camper Show Page</h1>
+
+Name:
+<h3><%= @camper.name %></h3>
+
+Age:
+<h3><%= @camper.age %></h3>
+
+<p>Sign Up for a new activity!
+<%= button_to("Add Activity", new_sign_up_path, method: "get") %>
+</p>
+List of Activities:
+<% @camper.activities.each do |act| %>
+<h3><%= link_to(act.name, activity_path(act)) %></h3>
+    <% end %>
+
+<p>Back to Index:
+<%= button_to("Index", campers_path, method: "get") %>
+</p>
